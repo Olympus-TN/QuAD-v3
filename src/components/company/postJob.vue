@@ -9,7 +9,7 @@
       type="text"
       id="defaultFormContactNameEx"
       class="form-control"
-      v-model="companyName"
+      v-model="offer.companyName"
     />
 
     <br />
@@ -20,7 +20,7 @@
       type="text"
       id="defaultFormContactEmailEx"
       class="form-control"
-      v-model="jobTitle"
+      v-model="offer.jobTitle"
     />
 
     <br />
@@ -34,7 +34,7 @@
       id="defaultFormContactMessageEx"
       class="form-control"
       rows="3"
-      v-model="jobDescription"
+      v-model="offer.jobDescription"
     ></textarea>
 
     <div class="text-center mt-4">
@@ -42,18 +42,27 @@
         Add a new post<i class="far fa-paper-plane ml-2"></i>
       </button>
     </div>
+     <ul>
+    <li v-for="(job,key) in jobOffers" :key="key">
+        {{key}}-{{ job.companyName }} - {{job.jobTitle}} - {{job.jobDescription}}
+    </li>
+  </ul>
   </div>
+   
   <!-- Default form contact -->
 </template>
 
 <script>
 export default {
+  name:"postJob",
   data() {
     return {
-      companyName: "",
-      jobTitle: "",
-      jobDescription: "",
-      list: [],
+      jobOffers : [],
+      offer: {
+        companyName: "",
+        jobTitle: "",
+        jobDescription: "",
+      },
     };
   },
   methods: {
@@ -63,11 +72,17 @@ export default {
       this.list.push(this.jobDescription);
       console.log(this.list);
     },
+    
   },
   watch: {
     companyName: function(val) {
       console.log(val);
     },
   },
+  // watch: {
+  //   companyName: function(val) {
+  //     console.log(val);
+  //   },
+  // },
 };
 </script>

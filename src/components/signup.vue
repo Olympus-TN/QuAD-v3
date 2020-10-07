@@ -268,6 +268,39 @@ export default {
       this.comapnysignup = true;
       this.userSignup = false;
     },
+    signupcompanyrequest(){
+axios({
+  method: 'post',
+  url: 'http://localhost:3008/signup/company',
+  data: {
+    ImageSrc:null,
+    Name: this.companyName,
+    Email:this.comapnyEmail,
+    password:this.comapnyPassword,
+    Location:null,
+    PhoneNumber:null
+  }
+
+}).then(data=>{console.log(data)})
+    },
+    signupuserrequest(){
+      console.log(1)
+axios({
+  method: 'post',
+  url: 'http://localhost:3008/signup',
+  data: {
+      Avatar:"",
+    FirstName:this.userName,
+    LastName:"",
+    Email:this.userName,
+    Password:this.userPassword,
+    PhoneNumber:null,
+    Description:"",
+    Age:null,
+    Skills:null
+  }
+}).then(data=>{console.log(data)})
+    },
   },
   
 };
