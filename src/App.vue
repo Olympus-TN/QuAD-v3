@@ -10,7 +10,6 @@
 </template>
 
 <script>
-// import postJob from "./components/company/postJob.vue";
 // import signup from "./components/signup.vue";
 // import navbar from "./components/navbar.vue";
 // import profile from './components/Freelancer/profile.vue'
