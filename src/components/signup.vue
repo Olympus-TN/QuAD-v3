@@ -202,6 +202,7 @@
 </template>
 
 <script>
+import axios from "axios"
 export default {
   data() {
     return {
@@ -227,7 +228,16 @@ export default {
 
       // this object have all the methods that we have to work on in.
       methods: {
-        addCompany: function () {
+        
+      },
+      watch:{
+        // TODO ???
+      }
+    };
+  },
+  methods: {
+    addCompany: function () {
+          this.signupcompanyrequest()
           this.freelancerList.push(this.userName);
           this.freelancerList.push(this.userEmail);
           this.freelancerList.push(this.userPassword);
@@ -236,20 +246,15 @@ export default {
           console.log(this.freelancerList)
         },
         addFreelancer: function() {
+          console.log("called")
+          this.signupuserrequest()
           this.companyList.push(this.companyName);
           this.companyList.push(this.comapnyEmail);
           this.companyList.push(this.comapnyPassword);
           this.companyList.push(this.comapnyCpassword);
           // check !
           console.log(this.companyList)
-        }
-      },
-      watch:{
-        // TODO ???
-      }
-    };
-  },
-  methods: {
+        },
     signupuser() {
       console.log("w");
       this.comapnysignup = false;
@@ -259,6 +264,39 @@ export default {
       console.log("w");
       this.comapnysignup = true;
       this.userSignup = false;
+    },
+    signupcompanyrequest(){
+axios({
+  method: 'post',
+  url: 'http://localhost:3008/signup/company',
+  data: {
+    ImageSrc:null,
+    Name: this.companyName,
+    Email:this.comapnyEmail,
+    password:this.comapnyPassword,
+    Location:null,
+    PhoneNumber:null
+  }
+
+}).then(data=>{console.log(data)})
+    },
+    signupuserrequest(){
+      console.log(1)
+axios({
+  method: 'post',
+  url: 'http://localhost:3008/signup',
+  data: {
+      Avatar:"",
+    FirstName:this.userName,
+    LastName:"",
+    Email:this.userName,
+    Password:this.userPassword,
+    PhoneNumber:null,
+    Description:"",
+    Age:null,
+    Skills:null
+  }
+}).then(data=>{console.log(data)})
     },
   },
 };
