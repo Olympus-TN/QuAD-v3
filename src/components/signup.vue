@@ -20,7 +20,7 @@
             <div class="text-center mb-4">
               <h1 class="h3 mb-3 font-weight-normal">
                 You don't have account? create one. It's free
-              </h1>
+              </h1> 
 
               <button
                 id="userSignup"
