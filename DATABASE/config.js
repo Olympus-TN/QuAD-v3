@@ -1,5 +1,7 @@
 module.exports = {
-    user: 'root',
-    password: '0000',
-    database: 'quad'
-  };
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database: "quad",
+};
+
