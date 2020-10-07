@@ -16,7 +16,7 @@
     <div class="col-sm-12 col-md-6 col-lg-6">
       <div class="container">
         <div div v-if="userSignup">
-          <form v-on:submit.prevent="addFreelancer" class="form-signup">
+          <form v-on:submit.prevent="signupuserrequest" class="form-signup">
             <div class="text-center mb-4">
               <h1 class="h3 mb-3 font-weight-normal">
                 You don't have account? create one. It's free
@@ -26,7 +26,6 @@
                 id="userSignup"
                 type="button"
                 class="btn btn-outline-primary"
-                @click="signupuser"
               >
                 Freelancer
               </button>
@@ -34,7 +33,6 @@
                 id="companySignup"
                 type="button"
                 class="btn btn-outline-primary"
-                @click="signupcompany"
               >
                 Company
               </button>
@@ -108,7 +106,7 @@
         <!-- ===========================================  company signup  =========================================== -->
 
         <div v-if="comapnysignup">
-          <form v-on:submit.prevent="addCompany" class="comapnysignup">
+          <form v-on:submit.prevent="signupcompanyrequest" class="comapnysignup">
             <div class="text-center mb-4">
               <h1 class="h3 mb-3 font-weight-normal">
                 You don't have account? create one. It's free
@@ -118,7 +116,6 @@
                 id="userSignup"
                 type="button"
                 class="btn btn-primary"
-                @click="signupuser"
               >
                 Freelancer
               </button>
@@ -126,7 +123,6 @@
                 id="companySignup"
                 type="button"
                 class="btn btn-primary"
-                @click="signupcompany"
               >
                 Company
               </button>
