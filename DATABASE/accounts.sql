@@ -19,7 +19,6 @@ CREATE TABLE users (
     PRIMARY KEY (ID)
 );
 
-
 CREATE TABLE jobOffers (
     ID int NOT NULL AUTO_INCREMENT,
     companyId varchar(25),
