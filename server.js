@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 ////////////////////////////////////// FREELANCER SECTION CRUD
 // add freelancer in DB  OK
 app.post('/signup', async (req, res)  => {
+  console.log("u")
     try {
         const data = await db.addUser(req.body);
         res.status(200).send(data);
@@ -104,6 +105,7 @@ app.post("/Applications/deleteApp", async (req, res) => {
 ////////////////////////////////////////////// COMPANY SECTION CRUD
 // add company in DB OK
 app.post('/signup/company', async (req, res) => {
+  console.log("c")
     try{
         const Cdata = await db.addCompanySignUpData(req.body);
         res.status(200).send(Cdata);

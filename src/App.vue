@@ -12,13 +12,14 @@
 import signup from "./components/signup.vue";
 import navbar from "./components/navbar.vue";
 // import profile from './components/Freelancer/profile.vue'
-
+// import postJob from "./components/company/postJob.vue"
 export default {
   name: "App",
   components: {
     signup,
     navbar,
     // profile
+    // postJob
   },
 };
 </script>

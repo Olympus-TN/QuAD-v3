@@ -48,6 +48,7 @@
 
 <script>
 export default {
+  name:"postJob",
   data() {
     return {
       companyName: "",
@@ -63,6 +64,7 @@ export default {
       this.list.push(this.jobDescription);
       console.log(this.list);
     },
+    
   },
   watch: {
     companyName: function(val) {
