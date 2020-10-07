@@ -67,17 +67,10 @@ export default {
     };
   },
   methods: {
-    addNew: function() {
-      let copy = { ...this.offer };
-      this.jobOffers.push(copy);
-    },
-  
-  // watch: {
-  //   companyName: function(val) {
-  //     console.log(val);
-  //   },
-  // },
+
   postPost: function() {
+     let copy = { ...this.offer };
+      this.jobOffers.push(copy);
     axios
       .post("http://127.0.0.1:3008/jobs", this.offer)
       .then((res) => console.log(res, "RES"))
