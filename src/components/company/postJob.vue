@@ -54,6 +54,7 @@
 
 <script>
 export default {
+  name:"postJob",
   data() {
     return {
       jobOffers : [],
@@ -66,8 +67,16 @@ export default {
   },
   methods: {
     addNew: function() {
-      let copy={...this.offer}
-      this.jobOffers.push(copy);
+      this.list.push(this.companyName);
+      this.list.push(this.jobTitle);
+      this.list.push(this.jobDescription);
+      console.log(this.list);
+    },
+    
+  },
+  watch: {
+    companyName: function(val) {
+      console.log(val);
     },
   },
   // watch: {
