@@ -1,24 +1,29 @@
 <template>
   <div class="appDiv">
-
-    <!-- <navbar />
-    <signup /> -->
-    <profile />
+<!-- 
+    <navbar />
+    <signup />  -->
+    <!-- <profile /> -->
+    <!-- <postJob /> -->
+    <companyProfile />
   </div>
 </template>
 
 <script>
-
+// import postJob from "./components/company/postJob.vue";
 // import signup from "./components/signup.vue";
 // import navbar from "./components/navbar.vue";
-import profile from './components/freelancer/profile.vue'
+// import profile from "./components/freelancer/profile";
+import companyProfile from "./components/company/profile.vue"
 
 export default {
   name: "App",
   components: {
     // signup,
     // navbar,
-    profile
+    // profile,
+    // postJob,
+    companyProfile
   },
 };
 </script>
