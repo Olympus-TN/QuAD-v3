@@ -56,6 +56,7 @@
 <script>
 import axios from "axios";
 export default {
+  name:"postJob",
   data() {
     return {
       jobOffers: [],
@@ -67,7 +68,6 @@ export default {
     };
   },
   methods: {
-
   postPost: function() {
      let copy = { ...this.offer };
       this.jobOffers.push(copy);
