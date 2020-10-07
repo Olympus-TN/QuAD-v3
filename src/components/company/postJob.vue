@@ -63,6 +63,9 @@
         <li class="list-group-item">
         <h6><p>Description : {{ job.Description }} </p></h6>
         </li>
+        <li class="list-group-item">
+        <button type="button" class="btn btn-danger">Delete</button>
+        </li>
       </div>
     </ul>
   </div>
@@ -106,8 +109,5 @@ margin-bottom: 5px;;
 padding: 3%;
 width: 50%;
 }
-/* .listOne {
-padding-top: 5%;
-padding-bottom: 5%;
-} */
+
 </style>
