@@ -1,8 +1,9 @@
 <template>
   <div class="appDiv">
-
     <!-- <navbar />
     <signup /> -->
+    <!-- <profile /> -->
+    <postJob />
     <!-- <profile /> -->
     <!-- <postJob /> -->
     <companyProfile />
@@ -10,9 +11,10 @@
 </template>
 
 <script>
+// import postJob from "./components/company/postJob.vue";
 // import signup from "./components/signup.vue";
 // import navbar from "./components/navbar.vue";
-// import profile from './components/Freelancer/profile.vue'
+// import profile from "./components/freelancer/profile";
 // import postJob from "./components/company/postJob.vue"
 import companyProfile from "./components/company/profile.vue"
 export default {
@@ -20,6 +22,8 @@ export default {
   components: {
     // signup,
     // navbar,
+    // profile
+    // postJob
     // profile,
     // postJob,
   companyProfile,
@@ -29,11 +33,16 @@ export default {
 
 <style scoped>
 .appDiv {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://cdn.mos.cms.futurecdn.net/kVHndERw4LxuWxArZouVU6.jpg");
+/* .appDiv {
   background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://cdn.mos.cms.futurecdn.net/kVHndERw4LxuWxArZouVU6.jpg");
   background-size: cover;
-  background-position:center;
+  background-position: center;
   font-family: "Varela Round", sans-serif;
-
+<<<<<<< HEAD
+}
+||||||| dcda223
+*/
 }
 </style>
-
