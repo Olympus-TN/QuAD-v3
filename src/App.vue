@@ -1,6 +1,6 @@
 <template>
   <div class="appDiv">
-   <navbar />
+    <navbar />
     <signup /> -->
     <!-- <profile /> -->
     <!-- <postJob /> -->
