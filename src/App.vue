@@ -1,13 +1,13 @@
 <template>
   <div class="appDiv">
     <freelancerHome />
-    <navbar  @childToParent="changeuserdata"/>
+    <navbar  @childToParent="changeuserdata" @companydata="changecompanydata"/>
     <signup />
     <!-- <profile /> -->
     <postJob />
-    <profile :data="data"/>
+    <profile :data="data" />
     <postJob />
-    <companyProfile />
+    <companyProfile :cdata="cdata"/>
   </div>
 </template>
 
@@ -33,12 +33,16 @@ export default {
   },
    data() {
     return {
-      data:[]
+      data:[],
+      cdata:[]
     }
     },
   methods:{
    changeuserdata(value){
      this.data=value
+   },
+   changecompanydata(value){
+     this.cdata=value
    }
   }
 };
