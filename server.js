@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 ////////////////////////////////////// FREELANCER SECTION CRUD
 // add freelancer in DB  OK
 app.post('/signup', async (req, res)  => {
-  console.log(req.body);
+
     try {
         const data = await db.addUser(req.body);
         res.status(200).send(data);
@@ -32,12 +32,15 @@ app.post('/signup', async (req, res)  => {
 
 // checking if freelancer login data is valid OK
 app.post('/login', async (req, res) => {
+  console.log(req.body);
     try {
         const data = await db.getUser(req.body.email);
-        console.log(data)
+        console.log(data,"data")
+
             if (data[0].Email === req.body.email && data[0].Password === req.body.password) {
                 res.status(200).send(data[0])
-
+            }else{
+              res.send({login:false})
             }
         
     }catch (err) {console.log(err)}
@@ -120,6 +123,8 @@ app.post('/login/company', async (req, res) => {
         console.log(data)
             if (data[0].Email === req.body.email && data[0].Password === req.body.password) {
                 res.status(200).send(data[0])
+            }else{
+              res.send({login:false})
             }  
     }catch (err) {console.log(err)}
 });

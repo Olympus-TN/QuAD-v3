@@ -36,11 +36,13 @@
           class="form-control mr-sm-2"
           type="email"
           placeholder="freelancer Email"
+          v-model="Email"
         />
         <input
           class="form-control mr-sm-2"
           type="password"
           placeholder="Password"
+          v-model="Password"
         />
         <!-- this button gonna switch beetween freelancer login and company login -->
         <button
@@ -56,6 +58,7 @@
           class="btn btn-primary"
           type="submit"
           data-toggle="collapse"
+          @click="this.login"
         >
           Log in
         </button>
@@ -65,11 +68,13 @@
           class="form-control mr-sm-2"
           type="email"
           placeholder="company Email"
+          v-model="Email"
         />
         <input
           class="form-control mr-sm-2"
           type="password"
           placeholder="Password"
+          v-model="Password"
         />
         <!-- this button gonna switch beetween freelancer login and company login -->
         <button
@@ -85,6 +90,7 @@
           class="btn btn-primary"
           type="submit"
           data-toggle="collapse"
+          @click="this.login"
         >
           Log in
         </button>
@@ -93,14 +99,18 @@
   </nav>
 </template>
 <script>
+import axios from "axios";
 export default {
+name: "navbar",
   data() {
     return {
       freeLancerLogin: true,
       companyLogin: false,
+      Email:"",
+      Password:""
     };
   },
-  name: "navbar",
+  
     methods: {
     freelancerSide() {
       console.log("freelancerSide");
@@ -111,6 +121,38 @@ export default {
       console.log("companyLogin");
       this.freeLancerLogin = false;
       this.companyLogin = true;
+    },
+    login(){
+   
+      if(this.freeLancerLogin){
+       axios({
+        method: "post",
+        url: "http://localhost:3008/login",
+        data: {
+          email:this.Email,password:this.Password
+        }
+       }).then(data=>{
+         if(!data.login){
+           alert("check again")
+         }else{
+           console.log(data)
+         }
+       })
+      }else{
+axios({
+        method: "post",
+        url: "http://localhost:3008/login/company",
+        data: {
+         email:this.Email,password:this.Password
+        }
+       }).then(data=>{
+         if(!data.login){
+           alert("check again")
+         }else{
+           console.log(data)
+         }
+       })
+      }
     }
   }
 };

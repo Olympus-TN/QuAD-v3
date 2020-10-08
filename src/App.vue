@@ -1,6 +1,5 @@
 <template>
   <div class="appDiv">
-
    <navbar />
     <signup /> -->
     <!-- <profile /> -->
