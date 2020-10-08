@@ -1,12 +1,10 @@
 <template>
   <div class="appDiv">
-    <freelancerHome />
+    <freelancerHome :data="data"/>
     <navbar  @childToParent="changeuserdata" @companydata="changecompanydata"/>
     <signup />
-    <!-- <profile /> -->
-    <postJob />
+    <postJob :cdata="cdata"/>
     <profile :data="data" />
-    <postJob />
     <companyProfile :cdata="cdata"/>
   </div>
 </template>
@@ -28,8 +26,6 @@ export default {
     navbar,
     profile,
     postJob,
-    // profile,
-    // postJob,
     companyProfile,
     // freelancerNav,
   },
@@ -40,10 +36,10 @@ export default {
     }
     },
   methods:{
-   changeuserdata(value){
+   changeuserdata: function(value){
      this.data=value
    },
-   changecompanydata(value){
+   changecompanydata: function(value){
      this.cdata=value 
    }
   }
