@@ -1,13 +1,11 @@
 <template>
   <div class="appDiv">
-    <freelancerHome />
-    <navbar />
+    <freelancerHome :data="data"/>
+    <navbar  @childToParent="changeuserdata" @companydata="changecompanydata" />
     <signup />
-    <!-- <profile /> -->
-    <postJob />
-    <profile />
-    <postJob />
-    <companyProfile />
+    <postJob :cdata="cdata"/>
+    <profile :data="data" />
+    <companyProfile :cdata="cdata"/>
   </div>
 </template>
 
@@ -19,9 +17,11 @@ import profile from "./components/freelancer/profile";
 // import postJob from "./components/company/postJob.vue";
 import companyProfile from "./components/company/profile.vue";
 import freelancerHome from "./components/freelancer/homePage";
+
 export default {
   name: "App",
   components: {
+
     freelancerHome,
     signup,
     navbar,
@@ -30,7 +30,22 @@ export default {
     // profile,
     // postJob,
     companyProfile,
+
   },
+   data() {
+    return {
+      data : [],
+      cdata:[]
+    }
+    },
+  methods:{
+   changeuserdata: function(value){
+     this.data=value
+   },
+   changecompanydata: function(value){
+     this.cdata=value 
+   }
+  }
 };
 </script>
 
@@ -38,9 +53,6 @@ export default {
 .appDiv {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://cdn.mos.cms.futurecdn.net/kVHndERw4LxuWxArZouVU6.jpg");
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://cdn.mos.cms.futurecdn.net/kVHndERw4LxuWxArZouVU6.jpg");
-  background-size: cover;
   background-position: center;
   font-family: "Varela Round", sans-serif;
 }

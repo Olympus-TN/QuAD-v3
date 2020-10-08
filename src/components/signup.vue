@@ -128,7 +128,7 @@
                 @click="signupuser"
               >
                 Freelancer
-              </button>
+              </button> 
               <button id="companySignup" type="button" class="btn btn-primary">
                 Company
               </button>
