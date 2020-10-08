@@ -36,10 +36,14 @@ app.post('/login', async (req, res) => {
     try {
         const data = await db.getUser(req.body.email);
         console.log(data,"data")
-
-            if (data[0].Email === req.body.email && data[0].Password === req.body.password) {
-                res.status(200).send(data[0])
-            }else{
+       if(data[0]){
+  if (data[0].Email === req.body.email && data[0].Password === req.body.password) {
+    res.status(200).send(data[0])
+         }else{
+          res.send({login:true})
+        }
+}
+            else{
               res.send({login:true})
             }
         
@@ -121,9 +125,14 @@ app.post('/login/company', async (req, res) => {
     try {
         const data = await db.GetCompanySignUpData(req.body.email);
         console.log(data)
-            if (data[0].Email === req.body.email && data[0].Password === req.body.password) {
-                res.status(200).send(data[0])
-            }else{
+        if(data[0]){
+          if (data[0].Email === req.body.email && data[0].Password === req.body.password) {
+            res.status(200).send(data[0])
+        }else{
+          res.send({login:true})
+        }  
+        }
+            else{
               res.send({login:true})
             }  
     }catch (err) {console.log(err)}
