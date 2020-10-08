@@ -135,6 +135,8 @@ name: "navbar",
          if(data.data.login){
            alert("check again")
          }else{
+           
+           this.$emit('childToParent',data.data)
            console.log(data)
          }
        })
@@ -150,6 +152,7 @@ axios({
            alert("check again")
          }else{
            console.log(data)
+           this.$emit('companydata',data.data)
          }
        })
       }
