@@ -135,6 +135,8 @@ name: "navbar",
          if(data.data.login){
            alert("check again")
          }else{
+           
+           this.$emit('childToParent',data.data)
            console.log(data)
          }
        })

@@ -1,11 +1,11 @@
 <template>
   <div class="appDiv">
     <freelancerHome />
-    <navbar />
+    <navbar  @childToParent="changeuserdata"/>
     <signup />
     <!-- <profile /> -->
     <postJob />
-    <profile />
+    <profile :data="data"/>
     <postJob />
     <companyProfile />
   </div>
@@ -31,6 +31,16 @@ export default {
     // postJob,
     companyProfile,
   },
+   data() {
+    return {
+      data:[]
+    }
+    },
+  methods:{
+   changeuserdata(value){
+     this.data=value
+   }
+  }
 };
 </script>
 
