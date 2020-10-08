@@ -1,10 +1,14 @@
 <template>
   <!-- Default form contact -->
-  <div>
+<div>
+<div class="card">
+  <div  class="card-title">
     <p class="h4 text-center mb-4">Post a new job</p>
-
+  </div>
     <!-- Default input name -->
-    <label for="defaultFormContactNameEx" class="grey-text">Company id</label>
+    <div class="card-title">
+    <label for="defaultFormContactNameEx">Company id</label>
+    </div>
     <input
       type="text"
       id="defaultFormContactNameEx"
@@ -13,9 +17,10 @@
     />
 
     <br />
-
+    <div class="card-title">
     <!-- Default input email -->
     <label for="defaultFormContactEmailEx" class="grey-text">Job Title</label>
+      </div>
     <input
       type="text"
       id="defaultFormContactEmailEx"
@@ -26,9 +31,10 @@
     <br />
 
     <!-- Default textarea message -->
+    <div class="card-title">
     <label for="defaultFormContactMessageEx" class="grey-text"
-      >Job description</label
-    >
+      >Job description</label>
+    </div>
     <textarea
       type="text"
       id="defaultFormContactMessageEx"
@@ -36,19 +42,34 @@
       rows="3"
       v-model="offer.Description"
     ></textarea>
-
     <div class="text-center mt-4">
       <button class="btn btn-outline-warning" v-on:click="postPost()">
         Add a new post<i class="far fa-paper-plane ml-2"></i>
       </button>
     </div>
-    <ul>
-      <li v-for="(job, key) in jobOffers" :key="key">
-        {{ key }}-{{ job.companyId }} - {{ job.jobTitle }} -
-        {{ job.Description }}
-      </li>
+</div>
+    <div>
+    <ul class="list-group" v-for="(job, key) in jobOffers" :key="key">
+      <div class="listOne">
+        <li class="list-group-item">
+        <h6><p> Key : {{ key }} </p></h6>
+        </li>
+        <li class="list-group-item">
+        <h6><p> Company ID : {{ job.companyId }} </p></h6>
+        </li>
+        <li class="list-group-item">
+        <h6><p>Job Title :{{ job.jobTitle }} </p> </h6>
+        </li>
+        <li class="list-group-item">
+        <h6><p>Description : {{ job.Description }} </p></h6>
+        </li>
+        <li class="list-group-item">
+        <button type="button" class="btn btn-danger">Delete</button>
+        </li>
+      </div>
     </ul>
   </div>
+</div>
 
   <!-- Default form contact -->
 </template>
@@ -79,3 +100,14 @@ export default {
   },
 };
 </script>
+<style scoped>
+
+.card, .listOne {
+margin-left: 25%;
+margin-top: 1%;
+margin-bottom: 5px;;
+padding: 3%;
+width: 50%;
+}
+
+</style>
