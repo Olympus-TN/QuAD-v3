@@ -1,5 +1,6 @@
 <template>
   <div class="appDiv">
+
    <navbar />
     <signup /> -->
     <!-- <profile /> -->
@@ -40,9 +41,6 @@ export default {
   background-size: cover;
   background-position: center;
   font-family: "Varela Round", sans-serif;
-<<<<<<< HEAD
-}
-||||||| dcda223
 */
 }
 </style>
