@@ -8,9 +8,9 @@
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTkBV8mlHgN411YXZMaaJ5SmYXf1cYMPZrRgA&usqp=CAU" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
-                      <h4>Company Medusa</h4>
-                      <p class="text-secondary mb-1">E-mail</p>
-                      <p class="text-muted font-size-sm">Phone Number</p>
+                      <h4>{{cdata.Name}}</h4>
+                        <p class="text-secondary mb-1">{{cdata.Email}}</p>
+                      <p class="text-muted font-size-sm">{{cdata.PhoneNumber}}</p>
                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProfileCompany">Edit Profile</button>
                     </div>
                   </div>
@@ -49,8 +49,8 @@
                       <h6 class="mb-0">Company Full Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    MEdusa Inc.
-                    </div>
+                    {{cdata.Name}}
+                    </div> 
                   </div>
                   <hr>
                   <div class="row">
@@ -58,7 +58,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    MedusaOlympus@gmail.com
+                    {{cdata.Email}}
                     </div>
                   </div>
                   <hr>                  
@@ -67,7 +67,7 @@
                       <h6 class="mb-0">Mobile</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    (+216) 12 345 678
+                    {{cdata.PhoneNumber}}
                     </div>
                   </div>
                   <hr>
@@ -96,7 +96,7 @@
                       </div>
                       <small>React</small>
                       <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-primary" role="progressbar"  style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                       <small>Angular</small>
                       <div class="progress mb-3" style="height: 5px">
@@ -158,6 +158,7 @@
 
 <script>
 export default {
+   props:["cdata"],
   name: "companyProfile",
   data () {
   return {

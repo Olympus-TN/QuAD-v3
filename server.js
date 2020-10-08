@@ -111,6 +111,7 @@ app.post("/signup/company", async (req, res) => {
   console.log("c");
   try {
     const Cdata = await db.addCompanySignUpData(req.body);
+    console.log(Cdata) 
     res.status(200).send(Cdata);
   } catch (e) {
     res.send(e);

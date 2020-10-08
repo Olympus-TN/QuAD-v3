@@ -8,9 +8,9 @@
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Google_Lens_-_new_logo.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
-                      <h4>Username</h4>
-                      <p class="text-secondary mb-1">E-mail</p>
-                      <p class="text-muted font-size-sm">Phone Number</p>
+                      <h4>{{data.FirstName}}</h4>
+                      <p class="text-secondary mb-1"> {{data.Email}}</p>
+                      <p class="text-muted font-size-sm"> {{data.PhoneNumber}}</p>
                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProfile">Edit Profile</button>
                     </div>
                   </div>
@@ -49,7 +49,7 @@
                       <h6 class="mb-0">Full Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    User Full Name
+                   {{data.FirstName}}
                     </div>
                   </div>
                   <hr>
@@ -58,7 +58,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    OlympusUser@gmail.com
+                    {{data.Email}}
                     </div>
                   </div>
                   <hr>                  
@@ -67,7 +67,7 @@
                       <h6 class="mb-0">Mobile</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    (+216) 12 345 678
+                   {{data.PhoneNumber}}
                     </div>
                   </div>
                   <hr>
@@ -169,8 +169,9 @@
 <script>
 // import axios from "axios";
 export default {
+  props:["data"],
   name: "profile",
-  data () {
+  data () { 
   return {
     newUsername: "",
     newEmail: "",

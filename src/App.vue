@@ -1,15 +1,13 @@
 <template>
-  <div id="app">
-    <p>
-       <router-link to="/" class="link"></router-link>
-        <!-- <router-link to="/home" class="link">HomePage</router-link>
-        <router-link to="/profile" class="link">Profile</router-link>
-        <router-link to="/newJob" class="link">Post a new Job</router-link> -->
-
-    
-  </p>
-  <router-view></router-view>
-    
+  <div class="appDiv">
+    <freelancerHome />
+    <navbar  @childToParent="changeuserdata" @companydata="changecompanydata"/>
+    <signup />
+    <!-- <profile /> -->
+    <postJob />
+    <profile :data="data" />
+    <postJob />
+    <companyProfile :cdata="cdata"/>
   </div>
 </template>
 
@@ -20,6 +18,20 @@ export default {
   components: {
 
   },
+   data() {
+    return {
+      data:[],
+      cdata:[]
+    }
+    },
+  methods:{
+   changeuserdata(value){
+     this.data=value
+   },
+   changecompanydata(value){
+     this.cdata=value 
+   }
+  }
 };
 </script>
 
