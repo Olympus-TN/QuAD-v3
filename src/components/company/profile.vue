@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-sm-9 text-secondary">
                     {{cdata.Name}}
-                    </div>
+                    </div> 
                   </div>
                   <hr>
                   <div class="row">
@@ -96,7 +96,7 @@
                       </div>
                       <small>React</small>
                       <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-primary" role="progressbar"  style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                       <small>Angular</small>
                       <div class="progress mb-3" style="height: 5px">
