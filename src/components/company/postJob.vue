@@ -77,7 +77,7 @@
 <script>
 import axios from "axios";
 export default {
-  name:"postJob",
+  name: "postJob",
   data() {
     return {
       jobOffers: [],
@@ -89,14 +89,14 @@ export default {
     };
   },
   methods: {
-  postPost: function() {
-     let copy = { ...this.offer };
+    postPost: function() {
+      let copy = { ...this.offer };
       this.jobOffers.push(copy);
-    axios
-      .post("http://127.0.0.1:3008/jobs", this.offer)
-      .then((res) => console.log(res, "RES"))
-      .catch((err) => console.error("[cpost jobs erroe]", err));
-  },
+      axios
+        .post("http://127.0.0.1:3008/jobs", this.offer)
+        .then((res) => console.log(res, "RES"))
+        .catch((err) => console.error("[cpost jobs erroe]", err));
+    },
   },
 };
 </script>

@@ -108,26 +108,19 @@
         <!-- ===========================================  company signup  =========================================== -->
 
         <div v-if="comapnysignup">
-          <form class="comapnysignup">
+          <form
+            v-on:submit.prevent="signupcompanyrequest"
+            class="comapnysignup"
+          >
             <div class="text-center mb-4">
               <h1 class="h3 mb-3 font-weight-normal">
                 You don't have account? create one. It's free
               </h1>
 
-              <button
-                id="userSignup"
-                type="button"
-                class="btn btn-primary"
-                @click="signupuser"
-              >
+              <button id="userSignup" type="button" class="btn btn-primary">
                 Freelancer
               </button>
-              <button
-                id="companySignup"
-                type="button"
-                class="btn btn-primary"
-                @click="signupcompany"
-              >
+              <button id="companySignup" type="button" class="btn btn-primary">
                 Company
               </button>
               <label id="companyMsg" for="label-name"
