@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 ////////////////////////////////////// FREELANCER SECTION CRUD
 // add freelancer in DB  OK
 app.post('/signup', async (req, res)  => {
-  console.log("u")
+  console.log(req.body);
     try {
         const data = await db.addUser(req.body);
         res.status(200).send(data);
