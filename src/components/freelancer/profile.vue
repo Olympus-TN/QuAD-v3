@@ -194,7 +194,7 @@ export default {
     newInstagram: this.newInstagram,
     newFacebook: this.newFacebook
   }
-  console.log('this is changing ===========> ', changing)
+  console.log('this is changing ===> ', changing)
   },
 }
 }

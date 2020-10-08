@@ -1,6 +1,7 @@
 <template>
   <div class="appDiv">
     <freelancerHome />
+    
     <navbar />
     <signup />
     <!-- <profile /> -->
@@ -8,10 +9,12 @@
     <profile />
     <postJob />
     <companyProfile />
+    <!-- <freelancerNav/> -->
   </div>
 </template>
 
 <script>
+// import freelancerNav from "./components/freelancer/freelancerNavbar"
 import postJob from "./components/company/postJob.vue";
 import signup from "./components/signup.vue";
 import navbar from "./components/navbar.vue";
@@ -30,6 +33,7 @@ export default {
     // profile,
     // postJob,
     companyProfile,
+    // freelancerNav,
   },
 };
 </script>
