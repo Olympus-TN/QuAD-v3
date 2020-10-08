@@ -132,7 +132,11 @@ name: "navbar",
           email:this.Email,password:this.Password
         }
        }).then(data=>{
-         console.log(data)
+         if(!data.login){
+           alert("check again")
+         }else{
+           console.log(data)
+         }
        })
       }else{
 axios({
@@ -142,7 +146,11 @@ axios({
          email:this.Email,password:this.Password
         }
        }).then(data=>{
-         console.log(data)
+         if(!data.login){
+           alert("check again")
+         }else{
+           console.log(data)
+         }
        })
       }
     }
