@@ -32,7 +32,7 @@ app.post('/signup', async (req, res)  => {
 
 // checking if freelancer login data is valid OK
 app.post('/login', async (req, res) => {
-  console.log(req.body);
+  console.log(" hey im frrelaancer login",req.body);
     try {
         const data = await db.getUser(req.body.email);
         console.log(data,"data")
@@ -40,7 +40,7 @@ app.post('/login', async (req, res) => {
             if (data[0].Email === req.body.email && data[0].Password === req.body.password) {
                 res.status(200).send(data[0])
             }else{
-              res.send({login:false})
+              res.send({login:true})
             }
         
     }catch (err) {console.log(err)}
@@ -124,7 +124,7 @@ app.post('/login/company', async (req, res) => {
             if (data[0].Email === req.body.email && data[0].Password === req.body.password) {
                 res.status(200).send(data[0])
             }else{
-              res.send({login:false})
+              res.send({login:true})
             }  
     }catch (err) {console.log(err)}
 });
