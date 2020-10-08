@@ -289,7 +289,7 @@ axios({
       Avatar:"",
     FirstName:this.userName,
     LastName:"",
-    Email:this.userName,
+    Email:this.userEmail,
     Password:this.userPassword,
     PhoneNumber:null,
     Description:"",
