@@ -32,7 +32,7 @@ app.post('/signup', async (req, res)  => {
 
 // checking if freelancer login data is valid OK
 app.post('/login', async (req, res) => {
-  console.log(req.body);
+  console.log(" hey im frrelaancer login",req.body);
     try {
         const data = await db.getUser(req.body.email);
         console.log(data,"data")
