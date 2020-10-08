@@ -132,7 +132,7 @@ name: "navbar",
           email:this.Email,password:this.Password
         }
        }).then(data=>{
-         if(data.login){
+         if(data.data.login){
            alert("check again")
          }else{
            console.log(data)
@@ -146,7 +146,7 @@ axios({
          email:this.Email,password:this.Password
         }
        }).then(data=>{
-         if(data.login){
+         if(data.data.login){
            alert("check again")
          }else{
            console.log(data)

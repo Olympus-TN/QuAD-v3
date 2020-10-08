@@ -20,7 +20,7 @@
             <div class="text-center mb-4">
               <h1 class="h3 mb-3 font-weight-normal">
                 You don't have account? create one. It's free
-              </h1> 
+              </h1>
 
               <button
                 id="userSignup"
@@ -99,7 +99,11 @@
               </label>
             </div>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click="addFreelancer">
+            <button
+              class="btn btn-lg btn-primary btn-block"
+              type="submit"
+              v-on:click="addFreelancer"
+            >
               Sign Up
             </button>
           </form>
@@ -117,7 +121,12 @@
                 You don't have account? create one. It's free
               </h1>
 
-              <button id="userSignup" type="button" class="btn btn-primary">
+              <button
+                id="userSignup"
+                type="button"
+                class="btn btn-primary"
+                @click="signupuser"
+              >
                 Freelancer
               </button>
               <button id="companySignup" type="button" class="btn btn-primary">
@@ -184,7 +193,10 @@
               </label>
             </div>
 
-            <button class="btn btn-lg btn-primary btn-block"  v-on:click="addCompany">
+            <button
+              class="btn btn-lg btn-primary btn-block"
+              v-on:click="addCompany"
+            >
               Sign Up
             </button>
           </form>
@@ -195,7 +207,7 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
 export default {
   data() {
     return {
@@ -204,50 +216,48 @@ export default {
       userSignup: true,
 
       // this lines for the freelancer signup.
-        userName: "",
-        userEmail: "",
-        userPassword: "",
-        userCpassword: "",
+      userName: "",
+      userEmail: "",
+      userPassword: "",
+      userCpassword: "",
 
       // this lines for the company signup.
-        companyName: "",
-        comapnyEmail: "",
-        comapnyPassword: "",
-        companyCpassword: "",
+      companyName: "",
+      comapnyEmail: "",
+      comapnyPassword: "",
+      companyCpassword: "",
 
       // this list gonna take the all informatyion for the company and freelancer.
       freelancerList: [],
-      companyList:[],
+      companyList: [],
 
       // this object have all the methods that we have to work on in.
-      methods: {
-        
-      },
-      watch:{
+      methods: {},
+      watch: {
         // TODO ???
-      }
+      },
     };
   },
   methods: {
     addCompany: function () {
-          this.signupcompanyrequest()
-          this.freelancerList.push(this.userName);
-          this.freelancerList.push(this.userEmail);
-          this.freelancerList.push(this.userPassword);
-          this.freelancerList.push(this.userCpassword);
-          // check !
-          console.log(this.freelancerList)
-        },
-        addFreelancer: function() {
-          console.log("called")
-          this.signupuserrequest()
-          this.companyList.push(this.companyName);
-          this.companyList.push(this.comapnyEmail);
-          this.companyList.push(this.comapnyPassword);
-          this.companyList.push(this.comapnyCpassword);
-          // check !
-          console.log(this.companyList)
-        },
+      this.signupcompanyrequest();
+      this.freelancerList.push(this.userName);
+      this.freelancerList.push(this.userEmail);
+      this.freelancerList.push(this.userPassword);
+      this.freelancerList.push(this.userCpassword);
+      // check !
+      console.log(this.freelancerList);
+    },
+    addFreelancer: function () {
+      console.log("called");
+      this.signupuserrequest();
+      this.companyList.push(this.companyName);
+      this.companyList.push(this.comapnyEmail);
+      this.companyList.push(this.comapnyPassword);
+      this.companyList.push(this.comapnyCpassword);
+      // check !
+      console.log(this.companyList);
+    },
     signupuser() {
       console.log("w");
       this.comapnysignup = false;
@@ -258,38 +268,41 @@ export default {
       this.comapnysignup = true;
       this.userSignup = false;
     },
-    signupcompanyrequest(){
-axios({
-  method: 'post',
-  url: 'http://localhost:3008/signup/company',
-  data: {
-    ImageSrc:null,
-    Name: this.companyName,
-    Email:this.comapnyEmail,
-    password:this.comapnyPassword,
-    Location:null,
-    PhoneNumber:null
-  }
-
-}).then(data=>{console.log(data)})
+    signupcompanyrequest() {
+      axios({
+        method: "post",
+        url: "http://localhost:3008/signup/company",
+        data: {
+          ImageSrc: null,
+          Name: this.companyName,
+          Email: this.comapnyEmail,
+          password: this.comapnyPassword,
+          Location: null,
+          PhoneNumber: null,
+        },
+      }).then((data) => {
+        console.log(data);
+      });
     },
-    signupuserrequest(){
-      console.log(1)
-axios({
-  method: 'post',
-  url: 'http://localhost:3008/signup',
-  data: {
-      Avatar:"",
-    FirstName:this.userName,
-    LastName:"",
-    Email:this.userEmail,
-    Password:this.userPassword,
-    PhoneNumber:null,
-    Description:"",
-    Age:null,
-    Skills:null
-  }
-}).then(data=>{console.log(data)})
+    signupuserrequest() {
+      console.log(1);
+      axios({
+        method: "post",
+        url: "http://localhost:3008/signup",
+        data: {
+          Avatar: "",
+          FirstName: this.userName,
+          LastName: "",
+          Email: this.userEmail,
+          Password: this.userPassword,
+          PhoneNumber: null,
+          Description: "",
+          Age: null,
+          Skills: null,
+        },
+      }).then((data) => {
+        console.log(data);
+      });
     },
   },
 };
