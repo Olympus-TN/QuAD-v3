@@ -40,7 +40,7 @@ app.post('/login', async (req, res) => {
             if (data[0].Email === req.body.email && data[0].Password === req.body.password) {
                 res.status(200).send(data[0])
             }else{
-              res.send({login:false})
+              res.send({login:true})
             }
         
     }catch (err) {console.log(err)}
@@ -124,7 +124,7 @@ app.post('/login/company', async (req, res) => {
             if (data[0].Email === req.body.email && data[0].Password === req.body.password) {
                 res.status(200).send(data[0])
             }else{
-              res.send({login:false})
+              res.send({login:true})
             }  
     }catch (err) {console.log(err)}
 });
