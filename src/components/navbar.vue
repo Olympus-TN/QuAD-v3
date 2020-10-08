@@ -150,7 +150,7 @@ axios({
        }).then(data=>{
          if(data.data.login){
            alert("check again")
-         }else{
+         }else{ 
            console.log(data)
            this.$emit('companydata',data.data)
          }

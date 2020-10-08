@@ -171,7 +171,7 @@
 export default {
   props:["data"],
   name: "profile",
-  data () {
+  data () { 
   return {
     newUsername: "",
     newEmail: "",
