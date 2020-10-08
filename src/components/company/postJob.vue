@@ -77,13 +77,13 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["data"],
+  props: ["cdata"],
   name: "postJob",
   data() {
     return {
       jobOffers: [],
       offer: {
-        companyId: "",
+        companyId: this.cdata.id ,
         jobTitle: "",
         Description: "",
       },
@@ -96,7 +96,7 @@ export default {
       axios
         .post("http://127.0.0.1:3008/jobs", this.offer)
         .then((res) => console.log(res, "RES"))
-        .catch((err) => console.error("[cpost jobs erroe]", err));
+        .catch((err) => console.error("company post jobs erroe", err));
     },
   },
 };
