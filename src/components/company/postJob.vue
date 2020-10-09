@@ -69,6 +69,7 @@ export default {
   data() {
     return {
       jobOffers: [],
+      // all the informatino that the post gonna take.
       offer: {
         companyId: this.cdata.id,
         jobTitle: "",
