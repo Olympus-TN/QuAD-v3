@@ -44,14 +44,16 @@ export default {
       console.log(postID);
       const app = {
         jobOfferId: postID,
-        userId: this.data.id,
+        userId:"",
       };
       // check !
       console.log(app);
       alert("great you has aplied");
       // send the post id and the user id to the applications table.
+      var appsend=app
+      appsend.userId=this.data.id
       axios
-        .post("http://127.0.0.1:3008/home/apply", app)
+        .post("http://127.0.0.1:3008/home/apply", appsend)
         .then((response) => console.log("Application saved", response.data))
         .catch((error) => console.log(error));
     },
