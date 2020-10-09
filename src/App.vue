@@ -1,5 +1,6 @@
 <template>
   <div class="appDiv">
+    <freelancerSection />
     <freelancerHome :data="data"/>
     <navbar  @childToParent="changeuserdata" @companydata="changecompanydata" />
     <signup />
@@ -10,25 +11,23 @@
 </template>
 
 <script>
+import freelancerSection from './components/freelancer/freelancerSection'
 import postJob from "./components/company/postJob.vue";
 import signup from "./components/signup.vue";
 import navbar from "./components/navbar.vue";
 import profile from "./components/freelancer/profile";
-// import postJob from "./components/company/postJob.vue";
 import companyProfile from "./components/company/profile.vue";
 import freelancerHome from "./components/freelancer/homePage";
 
 export default {
   name: "App",
   components: {
-
+    freelancerSection,
     freelancerHome,
     signup,
     navbar,
     profile,
     postJob,
-    // profile,
-    // postJob,
     companyProfile,
 
   },
