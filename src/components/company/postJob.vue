@@ -6,16 +6,6 @@
     <p class="h4 text-center mb-4">Post a new job</p>
   </div>
     <!-- Default input name -->
-    <div class="card-title">
-    <label for="defaultFormContactNameEx">Company id</label>
-    </div>
-    <input
-      type="text"
-      id="defaultFormContactNameEx"
-      class="form-control"
-      v-model="offer.companyId"
-    />
-
     <br />
     <div class="card-title">
     <!-- Default input email -->
@@ -52,10 +42,7 @@
     <ul class="list-group" v-for="(job, key) in jobOffers" :key="key">
       <div class="listOne">
         <li class="list-group-item">
-        <h6><p> Key : {{ key }} </p></h6>
-        </li>
-        <li class="list-group-item">
-        <h6><p> Company ID : {{ job.companyId }} </p></h6>
+        <h6><p> Company Name : {{ job.Name }} </p></h6>
         </li>
         <li class="list-group-item">
         <h6><p>Job Title :{{ job.jobTitle }} </p> </h6>
@@ -83,7 +70,7 @@ export default {
     return {
       jobOffers: [],
       offer: {
-        companyId: this.cdata.id ,
+        companyId: this.cdata.id,
         jobTitle: "",
         Description: "",
       },
