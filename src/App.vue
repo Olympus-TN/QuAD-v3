@@ -7,6 +7,7 @@
     <postJob :cdata="cdata"/>
     <profile :data="data" />
     <companyProfile :cdata="cdata"/>
+    <companyhomepage :cdata="cdata"/>
   </div>
 </template>
 
@@ -18,7 +19,7 @@ import navbar from "./components/navbar.vue";
 import profile from "./components/freelancer/profile";
 import companyProfile from "./components/company/profile.vue";
 import freelancerHome from "./components/freelancer/homePage";
-
+import companyhomepage from "./components/company/homePage.vue"
 export default {
   name: "App",
   components: {
@@ -29,7 +30,7 @@ export default {
     profile,
     postJob,
     companyProfile,
-
+    companyhomepage
   },
    data() {
     return {
