@@ -6,16 +6,6 @@
     <p class="h4 text-center mb-4">Post a new job</p>
   </div>
     <!-- Default input name -->
-    <div class="card-title">
-    <label for="defaultFormContactNameEx">Company id</label>
-    </div>
-    <input
-      type="text"
-      id="defaultFormContactNameEx"
-      class="form-control"
-      v-model="offer.companyId"
-    />
-
     <br />
     <div class="card-title">
     <!-- Default input email -->
@@ -52,10 +42,7 @@
     <ul class="list-group" v-for="(job, key) in jobOffers" :key="key">
       <div class="listOne">
         <li class="list-group-item">
-        <h6><p> Key : {{ key }} </p></h6>
-        </li>
-        <li class="list-group-item">
-        <h6><p> Company Name : {{ cdata.companyId }} </p></h6>
+        <h6><p> Company Name : {{ cdata.Name }} </p></h6>
         </li>
         <li class="list-group-item">
         <h6><p>Job Title :{{ job.jobTitle }} </p> </h6>
@@ -83,7 +70,7 @@ export default {
     return {
       jobOffers: [],
       offer: {
-        companyId: "",
+        companyId: this.cdata.id,
         jobTitle: "",
         Description: "",
       },
@@ -93,10 +80,11 @@ export default {
     postPost: function() {
       let copy = { ...this.offer };
       this.jobOffers.push(copy);
+      this.offer.companyId=this.cdata.id
       axios
         .post("http://127.0.0.1:3008/jobs", this.offer)
         .then((res) => console.log(res, "RES"))
-        .catch((err) => console.error("[cpost jobs erroe]", err));
+        .catch((err) => console.error("company post jobs erroe", err));
     },
   },
 };
