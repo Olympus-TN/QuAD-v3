@@ -14,6 +14,11 @@ CREATE TABLE users (
     Password varchar(50),
     Age int,
     PhoneNumber int(25),
+    Website varchar(40),
+    Github varchar(40),
+    Twitter varchar(40),
+    Instagram varchar(40),
+    Facebook varchar(40),
     Description varchar(30),
     Skills varchar(60),
     PRIMARY KEY (ID)
