@@ -43,7 +43,7 @@ export default {
      this.data=value
    },
    changecompanydata: function(value){
-     this.cdata=value 
+     this.cdata=value
    }
   }
 };
