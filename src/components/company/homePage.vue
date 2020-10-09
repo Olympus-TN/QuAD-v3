@@ -13,7 +13,7 @@
         <h6><p>Description :{{job.Description}}  </p></h6>
         </li>
         <li class="list-group-item">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Freelancer applied</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Freelancer applied</button>
         <button type="button" class="btn btn-danger">Delete</button>
         </li>
       </div>
