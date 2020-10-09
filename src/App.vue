@@ -1,47 +1,48 @@
 <template>
   <div class="appDiv">
-    <freelancerHome />
-    <navbar  @childToParent="changeuserdata" @companydata="changecompanydata"/>
+    <freelancerSection />
+    <freelancerHome :data="data"/>
+    <navbar  @childToParent="changeuserdata" @companydata="changecompanydata" />
     <signup />
-    <!-- <profile /> -->
-    <postJob />
+    <postJob :cdata="cdata"/>
     <profile :data="data" />
-    <postJob />
     <companyProfile :cdata="cdata"/>
+    <companyhomepage :cdata="cdata"/>
   </div>
 </template>
 
 <script>
+import freelancerSection from './components/freelancer/freelancerSection'
 import postJob from "./components/company/postJob.vue";
 import signup from "./components/signup.vue";
 import navbar from "./components/navbar.vue";
 import profile from "./components/freelancer/profile";
-// import postJob from "./components/company/postJob.vue";
 import companyProfile from "./components/company/profile.vue";
 import freelancerHome from "./components/freelancer/homePage";
+import companyhomepage from "./components/company/homePage.vue"
 export default {
   name: "App",
   components: {
+    freelancerSection,
     freelancerHome,
     signup,
     navbar,
     profile,
     postJob,
-    // profile,
-    // postJob,
     companyProfile,
+    companyhomepage
   },
    data() {
     return {
-      data:[],
+      data : [],
       cdata:[]
     }
     },
   methods:{
-   changeuserdata(value){
+   changeuserdata: function(value){
      this.data=value
    },
-   changecompanydata(value){
+   changecompanydata: function(value){
      this.cdata=value 
    }
   }
@@ -52,9 +53,6 @@ export default {
 .appDiv {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://cdn.mos.cms.futurecdn.net/kVHndERw4LxuWxArZouVU6.jpg");
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://cdn.mos.cms.futurecdn.net/kVHndERw4LxuWxArZouVU6.jpg");
-  background-size: cover;
   background-position: center;
   font-family: "Varela Round", sans-serif;
 }

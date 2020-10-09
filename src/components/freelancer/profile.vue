@@ -167,7 +167,7 @@
 </div>
 </template>
 <script>
-// import axios from "axios";
+import axios from "axios";
 export default {
   props:["data"],
   name: "profile",
@@ -186,16 +186,31 @@ export default {
   methods: {
     saveChanges: function() {
     const changing = {
-    newUsername: this.newUsername,
-    newEmail: this.newEmail,
-    newPhoneNumber: this.newPhoneNumber,
-    newWebsite: this.newWebsite,
-    newGithub: this.newGithub,
-    newTwitter: this.newTwitter,
-    newInstagram: this.newInstagram,
-    newFacebook: this.newFacebook
+    id:this.data.id,
+    Status:"",
+    Avatar:"",
+    FirstName:this.newUsername || this.data.FirstName,
+    LastName:"",
+    Email:this.newEmail || this.data.Email,
+    Password: this.data.Password,
+    Age:"",
+    PhoneNumber: this.newPhoneNumber || "",
+    Website:this.newWebsite || "",
+    Github:this.newGithub || "",
+    Twitter:this.newTwitter || "",
+    Instagram:this.newInstagram || "",
+    Facebook:this.newFacebook || "",
+    Description:"",
+    Skills:"",
   }
-  console.log('this is changing ===========> ', changing)
+  console.log('this is changing ===> ', changing)
+      axios
+      .post("http://127.0.0.1:3008/edit", changing)
+      .then((res) => {
+        console.log(res)
+      })
+      .then(this.handelProfile())
+      .catch((err) => console.log(err));
   },
 }
 }

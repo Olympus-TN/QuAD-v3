@@ -1,29 +1,62 @@
 <template>
   <ul>
-    <li v-for="(post, key) in this.posts" :key="key">
+    <form>
+      <li v-for="(post, key) in this.posts" :key="key">
         <br />
-      <div class="card">
-        <div class="card-header">
-        {{ post.companyId }}
+        <div class="card">
+          <div class="card-header">
+            {{ post.companyId }}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ post.jobTitle }}</h5>
+            <p class="card-text">{{ post.Description }}</p>
+            <button
+              type="submit"
+              @click="
+                (e) => {
+                  e.preventDefault();
+                  applying(post.ID);
+                }
+              "
+              id="bnt"
+              class="btn btn-primary"
+            >
+              Apply
+            </button>
+          </div>
         </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ post.jobTitle }}</h5>
-          <p class="card-text">{{ post.Description }}</p>
-          <button id ="bnt" class="btn btn-primary">Apply</button>
-        </div>
-      </div>
-      <br />
-    </li>
-    
+        <br />
+      </li>
+    </form>
   </ul>
 </template>
 <script>
 const axios = require("axios");
 export default {
+  props: ["data"],
   data() {
     return {
-      posts: {},
+      posts: [],
     };
+  },
+  methods: {
+    applying(postID) {
+      console.log(postID);
+      const app = {
+        jobOfferId: postID,
+        userId:"",
+      };
+      // check !
+      console.log(app);
+      alert("great you has aplied");
+      // send the post id and the user id to the applications table.
+      var appsend=app
+      appsend.userId=this.data.id
+      axios
+        .post("http://127.0.0.1:3008/home/apply", appsend)
+        .then((response) => console.log("Application saved", response.data))
+        .catch((error) => console.log(error));
+    },
   },
   mounted() {
     axios
@@ -37,12 +70,12 @@ export default {
 };
 </script>
 <style scoped>
-.card{
-    width:50%;
-    position: relative;
-    left: 25%;
+.card {
+  width: 50%;
+  position: relative;
+  left: 25%;
 }
-#bnt{
+#bnt {
   float: right;
 }
 </style>
