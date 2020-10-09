@@ -6,7 +6,7 @@
       <router-link to="/profile" class="link">Profile</router-link>
       <router-link to="/newJob" class="link">Post a new Job</router-link>
     </p> -->
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
     <homePage />
     <profile />
   </div>
