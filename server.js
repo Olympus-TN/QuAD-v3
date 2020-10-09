@@ -83,7 +83,7 @@ app.get("/applications/:id", async (req, res) => {
   }
 });
 
-// delete application from database.
+//delete application from database.
 app.post("/Applications/deleteApp", async (req, res) => {
   console.log(req.body);
   try {
@@ -94,7 +94,7 @@ app.post("/Applications/deleteApp", async (req, res) => {
   }
 });
 
-// edit freelancer profile
+//edit freelancer profile
 app.post("/edit", async (req, res) => {
   console.log("req.body ====>", req.body);
   try {
@@ -120,7 +120,7 @@ app.post("/signup/company", async (req, res) => {
 
 // checking if company login data is valid OK
 app.post("/login/company", async (req, res) => {
-  try {
+  try { 
     const data = await db.GetCompanySignUpData(req.body.email);
     console.log(data);
     if (data[0]) {
