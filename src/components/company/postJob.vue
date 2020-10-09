@@ -55,7 +55,7 @@
         <h6><p> Key : {{ key }} </p></h6>
         </li>
         <li class="list-group-item">
-        <h6><p> Company ID : {{ job.companyId }} </p></h6>
+        <h6><p> Company Name : {{ cdata.companyId }} </p></h6>
         </li>
         <li class="list-group-item">
         <h6><p>Job Title :{{ job.jobTitle }} </p> </h6>
@@ -77,7 +77,7 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["data"],
+  props: ["cdata"],
   name: "postJob",
   data() {
     return {
