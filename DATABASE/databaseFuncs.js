@@ -307,8 +307,36 @@ const GetjobOffers = function () {
     });
   });
 };
+//get users applied for a postjob
+const getusersapplied = function (jobOfferId) {
+  return new Promise((resolve, reject) => {
+    console.log(jobOfferId),"jobOfferId";
+    connection.query(
+      `SELECT userId FROM applications WHERE jobOfferId = ${jobOfferId}`,
+      (err, data) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(data);
+      }
+    );
+  });
+};
 
-module.exports = {
+const getUserFromId = function (id) {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      `SELECT FirstName FROM users where id = '${id}' `,
+      (err, data) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(data);
+      }
+    );
+  });
+};
+module.exports = { 
   getUser,
   addUser,
   editUser,
@@ -323,7 +351,8 @@ module.exports = {
   AddJobOffers,
   addCompanySignUpData,
   companyInfo,
-
+  getusersapplied,
+  getUserFromId
   // getUsersWhoApplied,
   // getAppliedJobsByusers
 };
