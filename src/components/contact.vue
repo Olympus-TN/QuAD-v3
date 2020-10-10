@@ -12,6 +12,7 @@
 <script>
 import emailjs from 'emailjs-com';
 export default {
+  name:"contact",
   methods: {
     sendEmail: (e) => {
       emailjs.sendForm('service_8juivyq', 'template_7woxrfa', e.target, 'user_Df3eSWiFhwMtbedp2beNW')

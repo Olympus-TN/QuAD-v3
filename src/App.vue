@@ -1,8 +1,8 @@
 <template>
 
   <div class="appDiv">
-    <companynavbar v-if="companynavbar" @companyhome="companyhome" @companyprofil="companyProfilec" @companypostjob="companypostjobc"/>
-    <freelancernavbar v-if="freelancernavbar" @freelancerhome="homec" @freelancerprofile="profile"/>
+    <companynavbar v-if="companynavbar" @companyhome="companyhome" @companyprofil="companyProfilec" @companypostjob="companypostjobc" @abouts="aboutc" />
+    <freelancernavbar v-if="freelancernavbar" @freelancerhome="homec" @freelancerprofile="profile" @about="aboutc"/>
     <freelancerSection v-if="test"/>
     <freelancerHome :data="data" v-if="freelancerHome"/>
     <navbar  @childToParent="changeuserdata" @companydata="changecompanydata" v-if="landingpage"/>
@@ -11,7 +11,7 @@
     <profile :data="data"  v-if="freelancerprofil" />
     <companyProfile :cdata="cdata" v-if="companyProfile"/>
     <companyhomepage :cdata="cdata" v-if="companyhomepage"/>
-    
+    <contact v-if="about" />
 
 
   </div>
@@ -27,7 +27,7 @@ import profile from "./components/freelancer/profile";
 import companyProfile from "./components/company/profile.vue";
 import freelancerHome from "./components/freelancer/homePage";
 import companyhomepage from "./components/company/homePage.vue"
-
+import contact from "./components/contact.vue"
 import freelancernavbar from "./components/freelancer/freelancerNavbar.vue"
 import companynavbar from "./components/company/companyNavbar.vue"
 
@@ -45,7 +45,7 @@ export default {
     postJob,
     companyProfile,
     companyhomepage,
-
+contact,
     freelancernavbar,
   companynavbar
 
@@ -104,6 +104,9 @@ export default {
        this.freelancerHome=false
        this.freelancerprofil=false
        this.about=true
+       this.companyProfile=false
+       this.companyhome=false
+       this.companypostjob=false
        
      }
    },
