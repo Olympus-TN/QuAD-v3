@@ -15,23 +15,41 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <router-link to="/" class="nav-link">Home</router-link>
+          <router-link to="/home" class="nav-link" @click="freelancerhome">Home</router-link>
         </li>
         <li class="nav-item active">
-         <router-link  to="/profile" class="nav-link">Profile</router-link>
+         <router-link  to="/profile" class="nav-link" @click="freelancerprofile">Profile</router-link>
         </li>
         <li class="nav-item active">
-          <router-link to="/newJob" class="nav-link">add Job</router-link>
+          <router-link to="/newJob" class="nav-link">about</router-link>
         </li>
         <li class="nav-item active">
-          <a class="nav-link">log out <span class="sr-only">(current)</span></a>
+          <a class="nav-link" @click="logout">log out <span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
   </nav>
 </template>
 <script>
-export default {};
+export default {
+  name :"freelancernavbar",
+  data() {
+    return {
+      
+    }
+  },
+  methods:{
+    logout(){
+location.reload();
+    },
+    freelancerhome(){
+this.$emit('freelancerhome',true)
+    },
+    freelancerprofile(){
+      this.$emit('freelancerprofile',true)
+    }
+  }
+};
 </script>
 <style scoped>
 
