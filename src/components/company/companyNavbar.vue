@@ -15,23 +15,51 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <router-link to="/company" class="nav-link">Home</router-link>
+
+          <router-link to="/home" class="nav-link" @click="companyhome">Home</router-link>
         </li>
         <li class="nav-item active">
-         <router-link  to="/profile" class="nav-link">Profile</router-link>
+         <router-link  to="/profile" class="nav-link" @click="companyprofil">Profile</router-link>
         </li>
         <li class="nav-item active">
-          <router-link to="/newJob" class="nav-link">add Job</router-link>
+          <router-link to="/newJob" class="nav-link" @click="companypostjob">add Job</router-link>
+        </li>
+         <li class="nav-item active">
+          <router-link to="/newJob" class="nav-link">About</router-link>
         </li>
         <li class="nav-item active">
-          <a class="nav-link">log out <span class="sr-only">(current)</span></a> 
+          <a class="nav-link" @click="logout">log out <span class="sr-only">(current)</span></a>
+
         </li>
       </ul>
     </div>
   </nav>
 </template>
 <script>
-export default {};
+
+export default {
+    name:"companynavbar",
+data() {
+    return {
+      
+    }
+  },
+  methods:{
+    logout(){
+location.reload();
+    },
+    companyhome(){
+this.$emit('companyhome',true)
+    },
+    companyprofil(){
+        this.$emit('companyprofil',true)
+    },
+    companypostjob(){
+         this.$emit('companypostjob',true)
+    }
+}
+}
+
 </script>
 <style scoped>
 

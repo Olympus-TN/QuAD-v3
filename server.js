@@ -356,28 +356,4 @@ app.get("/profile", async (req, res) => {
 
 ////////////////////////////////////////////////////////
 
-app.post("/applicationU", async (req, res) => {
-  console.log("req", req.body);
-  try {
-    const users = await db.getusersapplied(req.body.jobOfferId);
-    var result=[]
-    var usernames=[]
-    for(var i=0;i<users.length;i++){
-      result.push(users[i].userId)
-    }
-    
-     for(var x=0;x<result.length;x++){
-      const userN = await db.getUserFromId(result[x])
-      usernames.push(userN[0].FirstName)
-     }
-    console.log(usernames,"<=============================")
-    res.status(200).send(usernames);
-  } catch (err) {
-    console.log("[server side joboffers insert]", err);
-  }
-});
-
-
-
-
 app.listen(port, () => console.log(`server is listening on port ${port}`));

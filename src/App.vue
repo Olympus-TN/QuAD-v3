@@ -1,15 +1,19 @@
 <template>
-  <div class="app-div">
-    <freelancerSection />
-    <freelancerHome :data="data"/>
-    <navbar  @childToParent="changeuserdata" @companydata="changecompanydata" />
-    <router-view class="view"></router-view>
-    <signup />
-    <postJob :cdata="cdata"/>
-    <profile :data="data" />
-    <companyProfile :cdata="cdata"/>
-    <companyhomepage :cdata="cdata"/>
-    <contact />
+
+  <div class="appDiv">
+    <companynavbar v-if="companynavbar" @companyhome="companyhome" @companyprofil="companyProfilec" @companypostjob="companypostjobc"/>
+    <freelancernavbar v-if="freelancernavbar" @freelancerhome="homec" @freelancerprofile="profile"/>
+    <freelancerSection v-if="test"/>
+    <freelancerHome :data="data" v-if="freelancerHome"/>
+    <navbar  @childToParent="changeuserdata" @companydata="changecompanydata" v-if="landingpage"/>
+    <signup v-if="landingpage"/>
+    <postJob :cdata="cdata" v-if="companypostjob"/>
+    <profile :data="data"  v-if="freelancerprofil" />
+    <companyProfile :cdata="cdata" v-if="companyProfile"/>
+    <companyhomepage :cdata="cdata" v-if="companyhomepage"/>
+    
+
+
   </div>
 </template>
 
@@ -23,9 +27,11 @@ import profile from "./components/freelancer/profile";
 import companyProfile from "./components/company/profile.vue";
 import freelancerHome from "./components/freelancer/homePage";
 import companyhomepage from "./components/company/homePage.vue"
-import about from "./components/about.vue"
-import filed from "./components/filed.vue"
-import contact from "./components/contact.vue";
+
+import freelancernavbar from "./components/freelancer/freelancerNavbar.vue"
+import companynavbar from "./components/company/companyNavbar.vue"
+
+
 
 
 export default {
@@ -39,20 +45,91 @@ export default {
     postJob,
     companyProfile,
     companyhomepage,
-    contact
+
+    freelancernavbar,
+  companynavbar
+
   },
    data() {
     return {
       data : [],
-      cdata:[]
+      cdata:[],
+            landingpage:true,
+      ////Freelancer////
+      test:false,
+      freelancerHome:false,
+      freelancernavbar:false,
+      freelancerprofil:false,
+      about:false,
+      //company//
+      companyhomepage:false,
+      companyProfile:false,
+      companynavbar:false,
+      companypostjob:false
     }
     },
   methods:{
    changeuserdata: function(value){
      this.data=value
+     this.landingpage=false
+     this.freelancerHome=true
+     this.freelancernavbar=true
+     this.freelancerprofil=false
+     this.about=false
+
+    
    },
    changecompanydata: function(value){
-     this.cdata=value
+     this.cdata=value 
+     this.landingpage=false
+     this.companynavbar=true
+     this.companyhomepage=true
+   },
+   homec:function(value){
+    if(value===true){
+      this.freelancerHome=true
+      this.freelancerprofil=false
+         this.about=false
+    }
+   },
+   profile:function(value){
+     if(value===true){
+       this.freelancerHome=false
+       this.freelancerprofil=true
+          this.about=false
+     }
+   },
+   aboutc:function(value){
+     if(value===true){
+       this.freelancerHome=false
+       this.freelancerprofil=false
+       this.about=true
+       
+     }
+   },
+   companyhome:function(value){
+     if(value===true){
+       this.companyhomepage=true
+       this.about=false
+       this.companyProfile=false
+       this.companypostjob=false
+     }
+   },
+   companyProfilec:function(value){
+     if(value===true){
+       this.companypostjob=false
+       this.companyhomepage=false
+       this.about=false
+       this.companyProfile=true
+     }
+   },
+   companypostjobc:function(value){
+     if(value===true){
+       this.companyProfile=false
+       this.about=false
+       this.companypostjob=true
+       this.companyhomepage=false
+     }
    }
   }
 };
