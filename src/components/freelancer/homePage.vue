@@ -1,9 +1,9 @@
 <template>
   <ul>
-    <form>
-      <li v-for="(post, key) in this.posts" :key="key">
+    <form >
+      <li >
         <br />
-        <div class="card">
+        <div class="card" v-for="(post, key) in posts" :key="key">
           <div class="card-header">
             {{ post.companyId }}
           </div>

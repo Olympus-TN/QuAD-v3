@@ -24,7 +24,7 @@
         </li>
         <li class="nav-item active">
 
-          <router-link to="/newJob" class="nav-link">about</router-link>
+          <router-link to="/newJob" class="nav-link" @click="freelancerabout">about</router-link>
         </li>
         <li class="nav-item active">
           <a class="nav-link" @click="logout">log out <span class="sr-only">(current)</span></a>
@@ -52,6 +52,9 @@ this.$emit('freelancerhome',true)
     },
     freelancerprofile(){
       this.$emit('freelancerprofile',true)
+    },
+    freelancerabout(){
+      this.$emit('about',true)
     }
   }
 

@@ -91,7 +91,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .card, .listOne {
 margin-left: 25%;
 margin-top: 1%;
@@ -99,5 +98,4 @@ margin-bottom: 5px;;
 padding: 3%;
 width: 50%;
 }
-
 </style>

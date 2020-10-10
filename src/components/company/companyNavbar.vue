@@ -25,7 +25,7 @@
           <router-link to="/newJob" class="nav-link" @click="companypostjob">add Job</router-link>
         </li>
          <li class="nav-item active">
-          <router-link to="/newJob" class="nav-link">About</router-link>
+          <router-link to="/newJob" class="nav-link" @click="companyabout">About</router-link>
         </li>
         <li class="nav-item active">
           <a class="nav-link" @click="logout">log out <span class="sr-only">(current)</span></a>
@@ -56,6 +56,9 @@ this.$emit('companyhome',true)
     },
     companypostjob(){
          this.$emit('companypostjob',true)
+    },
+    companyabout(){
+        this.$emit('abouts',true)
     }
 }
 }
