@@ -1,3 +1,4 @@
+  
 <template>
     <div>
 <div>
@@ -13,7 +14,7 @@
         <h6><p>Description :{{job.Description}}  </p></h6>
         </li>
         <li class="list-group-item">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Freelancer applied</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" @click="appliedusers(job.ID)">Freelancer applied</button>
         <button type="button" class="btn btn-danger">Delete</button>
         </li>
       </div>
@@ -28,9 +29,10 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body" v-for="(name, key) in usernames" :key="key">
+        {{name}}
       </div>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
@@ -47,8 +49,12 @@ export default {
   name: "companyhomepage",
   data () {
   return {
-  jobs:[]
+  jobs:[],
+  usernames:[]
   }
+  },
+  mounted(){
+   this.data()
   },
   watch:{
    cdata(newv,prev){
@@ -62,10 +68,37 @@ export default {
                     result.push(res.data[i])
                 }
             }
+            console.log(result)
             this.jobs=result
         })
         .catch((err) => console.error("company post jobs erroe", err));
   }
+   },
+   methods:{
+     data(){
+       axios
+        .get("http://127.0.0.1:3008/home")
+        .then((res) => {
+            var result=[]
+            for(var i=0;i<res.data.length;i++){
+                if((res.data[i].companyId*1)===this.cdata.id){
+                    result.push(res.data[i])
+                }
+            }
+            console.log(result)
+            this.jobs=result
+        })
+        .catch((err) => console.error("company post jobs erroe", err));
+  },
+     appliedusers(id){
+       console.log(id)
+        axios
+        .post("http://127.0.0.1:3008/applicationU", {jobOfferId:id})
+        .then((response) => {console.log(response.data)
+          this.usernames = response.data})
+        .catch((error) => console.log(error));
+     }
+ 
    }
 }
 </script>
@@ -77,5 +110,4 @@ margin-bottom: 5px;;
 padding: 3%;
 width: 50%;
 }
-
 </style>

@@ -232,10 +232,8 @@ export default {
 //   .catch((err) => console.log(err));
 //   }
 }
-
 </script>
 <style scoped>
-
 #editProfile{
     margin-top: 10%;
 }
@@ -248,7 +246,6 @@ input {
 .card {
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
 }
-
 .card {
     position: relative;
     display: flex;
@@ -260,18 +257,15 @@ input {
     border: 0 solid rgba(0,0,0,.125);
     border-radius: .25rem;
 }
-
 .card-body {
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1rem;
 }
-
 .gutters-sm {
     margin-right: -8px;
     margin-left: -8px;
 }
-
 .gutters-sm>.col, .gutters-sm>[class*=col-] {
     padding-right: 8px;
     padding-left: 8px;
@@ -279,7 +273,6 @@ input {
 .mb-3, .my-3 {
     margin-bottom: 1rem!important;
 }
-
 .bg-gray-300 {
     background-color: #e2e8f0;
 }

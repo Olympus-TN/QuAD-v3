@@ -337,6 +337,20 @@ const getUserFromId = function (id) {
   });
 };
 
+const getusersapplied = function (jobOfferId) {
+  return new Promise((resolve, reject) => {
+    console.log(jobOfferId),"jobOfferId";
+    connection.query(
+      `SELECT userId FROM applications WHERE jobOfferId = ${jobOfferId}`,
+      (err, data) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(data);
+      }
+    );
+  });
+};
 module.exports = {
   getUser,
   addUser,
