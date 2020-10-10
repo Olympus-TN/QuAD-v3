@@ -1,5 +1,9 @@
 <template>
+
+<!-- <div>User  </div> -->
+
 <div class="container">
+  <h1>{{ $route.params.id }}</h1>
     <div class="main-body">
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
@@ -8,9 +12,9 @@
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Google_Lens_-_new_logo.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
-                      <h4>{{data.FirstName}}</h4>
-                      <p class="text-secondary mb-1"> {{data.Email}}</p>
-                      <p class="text-muted font-size-sm"> {{data.PhoneNumber}}</p>
+                      <h4>{{freelancerInfo.FirstName}}</h4>
+                      <p class="text-secondary mb-1"> {{freelancerInfo.Email}}</p>
+                      <p class="text-muted font-size-sm"> {{freelancerInfo.PhoneNumber}}</p>
                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProfile">Edit Profile</button>
                     </div>
                   </div>
@@ -49,7 +53,7 @@
                       <h6 class="mb-0">Full Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                   {{data.FirstName}}
+                   {{freelancerInfo.FirstName}}
                     </div>
                   </div>
                   <hr>
@@ -58,7 +62,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    {{data.Email}}
+                    {{freelancerInfo.Email}}
                     </div>
                   </div>
                   <hr>                  
@@ -67,7 +71,7 @@
                       <h6 class="mb-0">Mobile</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                   {{data.PhoneNumber}}
+                   {{freelancerInfo.PhoneNumber}}
                     </div>
                   </div>
                   <hr>
@@ -126,7 +130,7 @@
           </div>
         </div>
 
-<!-- >>>>>>>>>>>>>>>>>>>>>>>> this is your edit tab <<<<<<<<<<<<<<<<<<<<<<<<< -->
+ <!-- >>>>>>>>>>>>>>>>>>>>>>>> this is your edit tab <<<<<<<<<<<<<<<<<<<<<<<<<  -->
 
     <div id="editProfile" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -165,7 +169,8 @@
             </div>
         </div>
         </div>
-</div>
+</div> 
+
 </template>
 <script>
 import axios from "axios";
@@ -213,7 +218,19 @@ export default {
       .then(this.handelProfile())
       .catch((err) => console.log(err));
   },
-}
+},
+// mounted(){
+//   axios.get("http://127.0.0.1:3008/freelancerInfo")
+//   .then((response) => {
+//   console.log("hey ===>",response.data.id);
+//   console.log("route ===>",this.$route.params.id);
+//   if (response.data.id === this.$route.params.id){
+//     this.freelancerInfo = response.data
+//     console.log(this.freelancerInfo)
+//     }
+//   })
+//   .catch((err) => console.log(err));
+//   }
 }
 
 </script>

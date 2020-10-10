@@ -1,10 +1,9 @@
 
 <template>
   <div>
-    <router-view>
-      <navbar />
-      
-    </router-view>
+    <navbar />
+    <!-- <profile :data="data"/> -->
+    <router-view></router-view>
   </div>
 </template>
 
