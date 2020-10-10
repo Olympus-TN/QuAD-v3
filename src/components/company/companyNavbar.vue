@@ -15,6 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
+
           <router-link to="/home" class="nav-link" @click="companyhome">Home</router-link>
         </li>
         <li class="nav-item active">
@@ -28,12 +29,14 @@
         </li>
         <li class="nav-item active">
           <a class="nav-link" @click="logout">log out <span class="sr-only">(current)</span></a>
+
         </li>
       </ul>
     </div>
   </nav>
 </template>
 <script>
+
 export default {
     name:"companynavbar",
 data() {
@@ -56,6 +59,7 @@ this.$emit('companyhome',true)
     }
 }
 }
+
 </script>
 <style scoped>
 

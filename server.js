@@ -27,6 +27,18 @@ app.post("/signup", async (req, res) => {
   }
 });
 
+// get all the freelancer informations.
+app.get("./freelancerInfo" , async (req, res) => {
+  console.log("we hav eall the freelancer info");
+  try {
+    const data = await db.freelancerInfo();
+    res.status(200).send(data)
+    console.log(data)
+  } catch(err){
+    console.log(err);
+  }
+})
+
 // checking if freelancer login data is valid OK
 app.post("/login", async (req, res) => {
   console.log(" hey im frrelaancer login", req.body);
@@ -75,7 +87,7 @@ app.post("/home/apply", async (req, res) => {
 app.get("/applications/:id", async (req, res) => {
   try {
     console.log(req.params.id);
-    const applications = await db.getApps(req.params.id); ////////////////////
+    const applications = await db.getApps(req.params.id); 
     console.log(applications);
     res.status(200).send(applications);
   } catch (err) {

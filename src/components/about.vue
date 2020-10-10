@@ -1,13 +1,8 @@
 <template>
-    
-<h1>helooooo</h1>
-
+    <h1>about work</h1>
 </template>
 <script>
 export default {
-    
+    name: "about"
 }
 </script>
-<style scoped>
-
-</style>

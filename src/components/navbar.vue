@@ -1,6 +1,9 @@
 <template>
   <nav id="navbar" class="navbar navbar-expand-lg navbar-light" :class="navbar">
-    <a id="logo" class="navbar-brand" href="#">Quad</a>
+    <router-link to="/" replace><a id="logo" class="nav-link" 
+            >QuAD <span class="sr-only">(current)</span></a
+          ></router-link>
+          
     <button
       class="navbar-toggler"
       type="button"
@@ -16,19 +19,24 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a id="about" class="nav-link" href="#"
+          <router-link to="/" replace><a id="about" class="nav-link" 
             >Home <span class="sr-only">(current)</span></a
-          >
+          ></router-link>
+          
         </li>
         <li class="nav-item active">
-          <a id="about" class="nav-link" href="#"
+          <router-link to="/about" replace>
+          <a id="about" class="nav-link"
             >About us <span class="sr-only">(current)</span></a
           >
+          </router-link>
         </li>
         <li class="nav-item active">
-          <a id="about" class="nav-link" href="#"
-            >Contact <span class="sr-only">(current)</span></a
+          <router-link to="/contact" replace>
+          <a id="about" class="nav-link"
+            >contact <span class="sr-only">(current)</span></a
           >
+          </router-link>
         </li>
       </ul>
       <form v-on:submit.prevent="companySide" v-if="freeLancerLogin" class="form-inline my-2 my-lg-0">
@@ -123,21 +131,21 @@ name: "navbar",
       this.companyLogin = true;
     },
     login(){
-   
       if(this.freeLancerLogin){
        axios({
         method: "post",
         url: "http://localhost:3008/login",
         data: {
-          email:this.Email,password:this.Password
+          email:this.Email,
+          password:this.Password
         }
        }).then(data=>{
          if(data.data.login){
            alert("check again")
          }else{
-           
            this.$emit('childToParent',data.data)
            console.log(data)
+          //  this.$router.push({path:`/freelancer/${data.data.id}/profile`})
          }
        })
       }else{
@@ -153,6 +161,7 @@ axios({
          }else{ 
            console.log(data)
            this.$emit('companydata',data.data)
+          //  this.$router.push({path:`/company/${data.data.id}/profile`})
          }
        })
       }
@@ -173,5 +182,6 @@ axios({
 }
 #btn {
   margin: 5px;
+  text-decoration: none;
 }
 </style>

@@ -30,6 +30,20 @@ const getUser = function (email) {
     );
   });
 };
+
+// get all the users info for the freelancer.
+const freelancerInfo = (() => {
+  return new Promise((resolve, reject) => {
+    connection.query(`SELECT * FROM users`, (err, data) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(data);
+    });
+  })
+})
+
+
 // edit freelancer profile OK
 const editUser = function (user) {
   console.log(`=======<huih"`);
@@ -308,6 +322,21 @@ const GetjobOffers = function () {
   });
 };
 
+
+const getUserFromId = function (id) {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      `SELECT FirstName FROM users where id = '${id}' `,
+      (err, data) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(data);
+      }
+    );
+  });
+};
+
 module.exports = {
   getUser,
   addUser,
@@ -323,6 +352,10 @@ module.exports = {
   AddJobOffers,
   addCompanySignUpData,
   companyInfo,
+
+  getusersapplied,
+  getUserFromId,
+  freelancerInfo,
 
   // getUsersWhoApplied,
   // getAppliedJobsByusers
